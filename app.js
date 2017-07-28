@@ -23,6 +23,6 @@ geocode.geocodeAdress(address, (errorMessage, results) => {
     if(errorMessage){
         console.log(errorMessage);
     } else {
-        console.log(JSON.stringify(results), undefined, 2);
+        console.log(JSON.stringify(results, undefined, 2));
     }
 });

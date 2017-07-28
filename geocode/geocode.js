@@ -8,7 +8,7 @@ request('http://www.google.com', function (error, response, body) {
   console.log('body:', body); // Print the HTML for the Google homepage. 
 });
 */
-
+//b76d93e4d12050af39c25388af04b88c
 var geocodeAdress = (address, callback) => {
     request({
         url: `https://maps.googleapis.com/maps/api/geocode/json?address=${address}`,
