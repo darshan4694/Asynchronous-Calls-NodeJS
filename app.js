@@ -1,5 +1,5 @@
 const request = require('request');
-
+const yargs = require('yargs');
 /*
 Format of the 'request' is as below:
 request('http://www.google.com', function (error, response, body) {
@@ -9,10 +9,24 @@ request('http://www.google.com', function (error, response, body) {
 });
 */
 
-// In our case we are using 'request' to fetch location info
+const argv = yargs
+            .options({
+                a: {
+                    describe: 'Address for which weather data required',
+                    demand: true,
+                    alias: 'address',
+                    string: true
+                }
+            })
+            .help()
+            .alias('help', 'h')
+            .argv;
+        
+const address = encodeURIComponent(argv.a);
 
+// In our case we are using 'request' to fetch location info
 request({
-    url: 'https://maps.googleapis.com/maps/api/geocode/json?address=5657%20amesbury%20drive%20dallas%20texas',
+    url: `https://maps.googleapis.com/maps/api/geocode/json?address=${address}`,
     json: true
 },
 (error, response, body) => {
@@ -21,19 +35,3 @@ request({
     console.log(`Latitude: ${body.results[0].geometry.location.lat}`);
     console.log(`Longitude: ${body.results[0].geometry.location.lng}`);
 });
-
-
-
-
-/*   
- Output:
-    $ node app.js 
-
-{ results:
-   [ { address_components: [Array],
-       formatted_address: '5657 Amesbury Dr, Dallas, TX 75206, USA',
-       geometry: [Object],
-       place_id: 'ChIJqR3b0p6fToYRDUTteHYbmbw',
-       types: [Array] } ],
-  status: 'OK' }
-  */
