@@ -19,4 +19,10 @@ const address = encodeURIComponent(argv.a);
 
 // In our case we are using 'request' to fetch location info
 
-geocode.geocodeAdress(address);
+geocode.geocodeAdress(address, (errorMessage, results) => {
+    if(errorMessage){
+        console.log(errorMessage);
+    } else {
+        console.log(JSON.stringify(results), undefined, 2);
+    }
+});
