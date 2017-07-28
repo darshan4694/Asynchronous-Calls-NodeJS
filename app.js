@@ -17,6 +17,7 @@ request({
 },
 (error, response, body) => {
     console.log(body);
+    
 });
 
 
@@ -25,7 +26,7 @@ request({
 /*   
  Output:
     $ node app.js 
-    
+
 { results:
    [ { address_components: [Array],
        formatted_address: '5657 Amesbury Dr, Dallas, TX 75206, USA',
