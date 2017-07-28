@@ -1,0 +1,22 @@
+{
+  "name": "asynchronous-node-weather-app",
+  "version": "0.0.1",
+  "description": "Asynchronous node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darshan4694/Asynchronous-node-weather-app.git"
+  },
+  "author": "Darshan Shah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/darshan4694/Asynchronous-node-weather-app/issues"
+  },
+  "homepage": "https://github.com/darshan4694/Asynchronous-node-weather-app#readme",
+  "dependencies": {
+    "request": "^2.81.0"
+  }
+}
