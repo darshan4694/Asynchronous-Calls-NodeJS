@@ -1,4 +1,23 @@
 const request = require('request');
+const yargs = require('yargs');
+
+const geocode = require('./geocode/geocode');
+const weather = require('./weather/weather');
+
+const argv = yargs
+    .options({
+        a: {
+            describe: 'Address for which weather data required',
+            demand: true,
+            alias: 'address',
+            string: true
+        }
+    })
+    .help()
+    .alias('help', 'h')
+    .argv;
+
+const addressIn = encodeURIComponent(argv.a);
 
 var geocodeAdress = (address) => {
 
@@ -52,7 +71,7 @@ var getWeather = (addressData) => {
 
 };
 
-geocodeAdress('07307').then((res) => {
+geocodeAdress(addressIn).then((res) => {
     console.log(JSON.stringify(res, undefined, 2));
     return getWeather(res);
 }).then((res) => {
